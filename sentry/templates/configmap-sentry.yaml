@@ -55,6 +55,9 @@ data:
     ################
     redis.clusters:
       default:
+        {{- if .Values.externalRedis.cluster.enabled }}
+        is_redis_cluster: {{ .Values.externalRedis.cluster.enabled }}
+        {{- end }}
         hosts:
           0:
             host: "{{ $redisHost }}"
