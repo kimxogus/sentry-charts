@@ -3,7 +3,28 @@ entries:
   clickhouse:
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.784719691Z"
+    created: "2023-05-03T10:11:39.719286769Z"
+    description: ClickHouse is an open source column-oriented database management
+      system capable of real time generation of analytical data reports using SQL
+      queries
+    digest: 9f16efee8d55974e66f106f46ebe7865e0823daa75dae6c95c973fe36b318b79
+    home: https://clickhouse.yandex/
+    icon: https://clickhouse.yandex/images/logo.png
+    keywords:
+    - clickhouse
+    - olap
+    - database
+    maintainers:
+    - name: sentry-kubernetes
+    name: clickhouse
+    sources:
+    - https://github.com/sentry-kubernetes/charts
+    urls:
+    - https://sentry-kubernetes.github.io/charts/clickhouse-3.2.1.tgz
+    version: 3.2.1
+  - apiVersion: v1
+    appVersion: "19.14"
+    created: "2023-05-03T10:11:39.716613598Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -24,7 +45,7 @@ entries:
     version: 3.1.3
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.783139907Z"
+    created: "2023-05-03T10:11:39.715093814Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -43,7 +64,7 @@ entries:
     version: 3.1.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.781659922Z"
+    created: "2023-05-03T10:11:39.71361823Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -62,7 +83,7 @@ entries:
     version: 3.0.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.780164238Z"
+    created: "2023-05-03T10:11:39.712082747Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -81,7 +102,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.778698953Z"
+    created: "2023-05-03T10:11:39.710690162Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -100,7 +121,7 @@ entries:
     version: 1.3.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.777378466Z"
+    created: "2023-05-03T10:11:39.709336977Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -119,7 +140,7 @@ entries:
     version: 1.2.2
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.775365987Z"
+    created: "2023-05-03T10:11:39.707003002Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -138,7 +159,7 @@ entries:
     version: 1.2.1
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.773888802Z"
+    created: "2023-05-03T10:11:39.705747216Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -157,7 +178,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.772710114Z"
+    created: "2023-05-03T10:11:39.704541329Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -176,7 +197,7 @@ entries:
     version: 1.1.0
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.771532126Z"
+    created: "2023-05-03T10:11:39.703264943Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -195,7 +216,7 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: "19.14"
-    created: "2022-09-02T06:55:12.77023144Z"
+    created: "2023-05-03T10:11:39.701981257Z"
     description: ClickHouse is an open source column-oriented database management
       system capable of real time generation of analytical data reports using SQL
       queries
@@ -214,8 +235,54 @@ entries:
     version: 1.0.0
   sentry:
   - apiVersion: v2
+    appVersion: 23.3.1
+    created: "2023-05-03T10:11:40.234135979Z"
+    dependencies:
+    - condition: sourcemaps.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.1.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.1
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 16.3.2
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://sentry-kubernetes.github.io/charts
+      version: 3.2.0
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 9.0.0
+    - alias: rabbitmq
+      condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 8.32.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/pre-2022/bitnami
+      version: 10.16.2
+    - condition: nginx.enabled
+      name: nginx
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.0.4
+    description: A Helm chart for Kubernetes
+    digest: 9dd4971cd3fc001fcd21c13a56ee2720eb986927124e9fd2d2d4518f03cdc69c
+    maintainers:
+    - name: sentry-kubernetes
+    name: sentry
+    type: application
+    urls:
+    - https://sentry-kubernetes.github.io/charts/sentry-18.0.0.tgz
+    version: 18.0.0
+  - apiVersion: v2
     appVersion: 22.8.0
-    created: "2022-09-02T06:55:13.217934838Z"
+    created: "2023-05-03T10:11:40.174540426Z"
     dependencies:
     - condition: sourcemaps.enabled
       name: memcached
@@ -261,7 +328,7 @@ entries:
     version: 15.2.1
   - apiVersion: v2
     appVersion: 22.6.0
-    created: "2022-09-02T06:55:13.172308807Z"
+    created: "2023-05-03T10:11:40.114707675Z"
     dependencies:
     - condition: sourcemaps.enabled
       name: memcached
@@ -307,7 +374,7 @@ entries:
     version: 15.0.10
   - apiVersion: v2
     appVersion: 21.8.0
-    created: "2022-09-02T06:55:13.127997162Z"
+    created: "2023-05-03T10:11:40.065781907Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -343,7 +410,7 @@ entries:
     version: 12.0.0
   - apiVersion: v2
     appVersion: 21.7.0
-    created: "2022-09-02T06:55:13.100779242Z"
+    created: "2023-05-03T10:11:40.036560924Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -379,7 +446,7 @@ entries:
     version: 11.6.0
   - apiVersion: v2
     appVersion: 21.6.1
-    created: "2022-09-02T06:55:13.075540901Z"
+    created: "2023-05-03T10:11:40.010783604Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -415,7 +482,7 @@ entries:
     version: 11.4.1
   - apiVersion: v2
     appVersion: 21.5.1
-    created: "2022-09-02T06:55:13.052570538Z"
+    created: "2023-05-03T10:11:39.984309891Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -451,7 +518,7 @@ entries:
     version: 11.3.1
   - apiVersion: v2
     appVersion: 21.5.1
-    created: "2022-09-02T06:55:13.028707883Z"
+    created: "2023-05-03T10:11:39.961670037Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -487,7 +554,7 @@ entries:
     version: 11.3.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.378919583Z"
+    created: "2023-05-03T10:11:40.406020412Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -519,7 +586,7 @@ entries:
     version: 4.2.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.361551361Z"
+    created: "2023-05-03T10:11:40.389154595Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -551,7 +618,7 @@ entries:
     version: 4.1.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.345519926Z"
+    created: "2023-05-03T10:11:40.372620875Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -583,7 +650,7 @@ entries:
     version: 4.0.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.329533891Z"
+    created: "2023-05-03T10:11:40.356012355Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -615,7 +682,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.314292947Z"
+    created: "2023-05-03T10:11:40.339502735Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -647,7 +714,7 @@ entries:
     version: 3.0.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.298882206Z"
+    created: "2023-05-03T10:11:40.323045813Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -679,7 +746,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.283079368Z"
+    created: "2023-05-03T10:11:40.305916899Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -711,7 +778,7 @@ entries:
     version: 2.2.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.266905334Z"
+    created: "2023-05-03T10:11:40.289667376Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -743,7 +810,7 @@ entries:
     version: 2.1.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.250698901Z"
+    created: "2023-05-03T10:11:40.272423463Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -775,7 +842,7 @@ entries:
     version: 2.0.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.234113671Z"
+    created: "2023-05-03T10:11:40.250040806Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -807,7 +874,7 @@ entries:
     version: 2.0.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.005207124Z"
+    created: "2023-05-03T10:11:39.934635131Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -839,7 +906,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.988984991Z"
+    created: "2023-05-03T10:11:39.918033211Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -871,7 +938,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.972497361Z"
+    created: "2023-05-03T10:11:39.901125795Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -903,7 +970,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.95502014Z"
+    created: "2023-05-03T10:11:39.884739372Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -935,7 +1002,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.934930247Z"
+    created: "2023-05-03T10:11:39.867823256Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -967,7 +1034,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.899070615Z"
+    created: "2023-05-03T10:11:39.838820271Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -999,7 +1066,7 @@ entries:
     version: 0.12.3
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.882593585Z"
+    created: "2023-05-03T10:11:39.822831545Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1031,7 +1098,7 @@ entries:
     version: 0.12.2
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.867104544Z"
+    created: "2023-05-03T10:11:39.807023516Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1063,7 +1130,7 @@ entries:
     version: 0.12.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.851031309Z"
+    created: "2023-05-03T10:11:39.790837892Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1095,7 +1162,7 @@ entries:
     version: 0.12.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.834595878Z"
+    created: "2023-05-03T10:11:39.77443987Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1127,7 +1194,7 @@ entries:
     version: 0.11.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.818110048Z"
+    created: "2023-05-03T10:11:39.757935949Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1159,7 +1226,7 @@ entries:
     version: 0.11.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.801264321Z"
+    created: "2023-05-03T10:11:39.736134986Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1191,7 +1258,7 @@ entries:
     version: 0.10.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.912288979Z"
+    created: "2023-05-03T10:11:39.852468423Z"
     description: A Helm chart for Kubernetes
     digest: ccf7aabac486a68779d6564d90a875b45fefa4e4a9e8f86903355cf886b6a3aa
     name: sentry
@@ -1201,7 +1268,7 @@ entries:
     version: 0.9.4
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.911150091Z"
+    created: "2023-05-03T10:11:39.851366135Z"
     description: A Helm chart for Kubernetes
     digest: 07b380bbb341bb276b962de0b3721c9142a97e9fd084a394fc4d9f5db75bceea
     name: sentry
@@ -1211,7 +1278,7 @@ entries:
     version: 0.9.3
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.910098602Z"
+    created: "2023-05-03T10:11:39.850264747Z"
     description: A Helm chart for Kubernetes
     digest: a5a52cb5362e604215b1811e053a1b790d8f2e6c0c553a55d52f0750a6f63936
     name: sentry
@@ -1221,7 +1288,7 @@ entries:
     version: 0.9.2
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.909044413Z"
+    created: "2023-05-03T10:11:39.849184159Z"
     description: A Helm chart for Kubernetes
     digest: 81e65b09754dea768122d4d619801bab77714f9c77520afbc1658c7bf68b563d
     name: sentry
@@ -1231,7 +1298,7 @@ entries:
     version: 0.9.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.907970524Z"
+    created: "2023-05-03T10:11:39.84810007Z"
     description: A Helm chart for Kubernetes
     digest: 225f13adbe6a002014b135afc02b65771fbb5bbdf6f09e3179a408beb316846c
     name: sentry
@@ -1241,7 +1308,7 @@ entries:
     version: 0.9.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.906789636Z"
+    created: "2023-05-03T10:11:39.847010382Z"
     description: A Helm chart for Kubernetes
     digest: aef5a5cd789251ab629d25d18ac94a7801e80fb99dde54dc98111e7547326ce8
     name: sentry
@@ -1251,7 +1318,7 @@ entries:
     version: 0.8.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.905015454Z"
+    created: "2023-05-03T10:11:39.845646197Z"
     description: A Helm chart for Kubernetes
     digest: 2ced97e545a92598f9b3bc487aa53b7b4cd6df8ba2b97ffbce5807a6e0a641d0
     name: sentry
@@ -1261,7 +1328,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.903190973Z"
+    created: "2023-05-03T10:11:39.843005026Z"
     description: A Helm chart for Kubernetes
     digest: bf3b118679f72f65fa20120dfd4c1718b56694250e80dac285189a0073a2fbcc
     name: sentry
@@ -1271,7 +1338,7 @@ entries:
     version: 0.6.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.902143284Z"
+    created: "2023-05-03T10:11:39.841939237Z"
     description: A Helm chart for Kubernetes
     digest: b24391c885cb84817b024df7feb81feb6d97443a1e7cf26d6a7a04cdd3e1af0c
     name: sentry
@@ -1281,7 +1348,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.901112594Z"
+    created: "2023-05-03T10:11:39.840925448Z"
     description: A Helm chart for Kubernetes
     digest: 476900c519773349f70e8d0171f870ba5ad7983c62fcc72ae3b7799948500f33
     name: sentry
@@ -1291,7 +1358,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:12.900108705Z"
+    created: "2023-05-03T10:11:39.83983796Z"
     description: A Helm chart for Kubernetes
     digest: 0da209fcf559a3aa66ef7715cf6327da2337e3739fff89e06a25d2e6a1488765
     name: sentry
@@ -1302,7 +1369,7 @@ entries:
   sentry-db:
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.532857601Z"
+    created: "2023-05-03T10:11:40.565830577Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1333,7 +1400,7 @@ entries:
     version: 0.9.4
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.517120162Z"
+    created: "2023-05-03T10:11:40.551295335Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1364,7 +1431,7 @@ entries:
     version: 0.9.3
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.503399803Z"
+    created: "2023-05-03T10:11:40.536728893Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1395,7 +1462,7 @@ entries:
     version: 0.9.2
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.489711444Z"
+    created: "2023-05-03T10:11:40.522389149Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1426,7 +1493,7 @@ entries:
     version: 0.9.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.475577589Z"
+    created: "2023-05-03T10:11:40.507949706Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1457,7 +1524,7 @@ entries:
     version: 0.9.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.462020429Z"
+    created: "2023-05-03T10:11:40.493427563Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1488,7 +1555,7 @@ entries:
     version: 0.8.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.44823047Z"
+    created: "2023-05-03T10:11:40.478673623Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1519,7 +1586,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.434119616Z"
+    created: "2023-05-03T10:11:40.464039482Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1550,7 +1617,7 @@ entries:
     version: 0.6.1
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.420299358Z"
+    created: "2023-05-03T10:11:40.449426441Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1581,7 +1648,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.406322601Z"
+    created: "2023-05-03T10:11:40.434887299Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1612,7 +1679,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 10.0.0
-    created: "2022-09-02T06:55:13.392279546Z"
+    created: "2023-05-03T10:11:40.420517455Z"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -1644,7 +1711,7 @@ entries:
   sentry-kubernetes:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-09-02T06:55:13.534323086Z"
+    created: "2023-05-03T10:11:40.566956265Z"
     description: A Helm chart for sentry-kubernetes (https://github.com/getsentry/sentry-kubernetes)
     digest: 57760fc8ad6d26a6cf3d28b78bfb2bdb8d80f4cce2ff1d4e527c2b2f3d1437c9
     home: https://github.com/getsentry/sentry-kubernetes
@@ -1662,7 +1729,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: latest
-    created: "2022-09-02T06:55:13.53384919Z"
+    created: "2023-05-03T10:11:40.566600869Z"
     description: A Helm chart for sentry-kubernetes (https://github.com/getsentry/sentry-kubernetes)
     digest: 233c575ab9e3eb3f63ee347cf32d3719b22e6546952a160cf253b32f895b5b83
     home: https://github.com/getsentry/sentry-kubernetes
@@ -1680,7 +1747,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: latest
-    created: "2022-09-02T06:55:13.533386295Z"
+    created: "2023-05-03T10:11:40.566243073Z"
     description: A Helm chart for sentry-kubernetes (https://github.com/getsentry/sentry-kubernetes)
     digest: 727778ddeffa08ad086e07dc6014f13a905145cde1d257816df2fd52f1ec93db
     home: https://github.com/getsentry/sentry-kubernetes
@@ -1696,4 +1763,4 @@ entries:
     urls:
     - https://sentry-kubernetes.github.io/charts/sentry-kubernetes-0.3.0.tgz
     version: 0.3.0
-generated: "2022-09-02T06:55:12.768779455Z"
+generated: "2023-05-03T10:11:39.700480373Z"
