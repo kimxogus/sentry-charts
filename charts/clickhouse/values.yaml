@@ -381,6 +381,11 @@ clickhouse:
     ##   </yandex>
     configOverride: ""
 
+  ## Users Secret configuration
+  usersSecret:
+    ## Provide an existing secret name (without the -users suffix). If set, the chart will not create a new secret and will mount this one instead.
+    existingSecretName: ""
+
 ##
 ## Web interface for ClickHouse in the Tabix project.
 ## Features:

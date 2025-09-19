@@ -1,13 +1,14 @@
-{{- if .Values.clickhouse.configmap.enabled }}
+{{- if and .Values.clickhouse.configmap.enabled (not .Values.clickhouse.usersSecret.existingSecretName) }}
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
+type: Opaque
 metadata:
   name: {{ include "clickhouse.fullname" . }}-users
   labels:
     app.kubernetes.io/name: {{ include "clickhouse.name" . }}-users
     app.kubernetes.io/instance: {{ .Release.Name }}-users
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-data:
+stringData:
   users.xml: |-
     <?xml version="1.0"?>
     <yandex>
